@@ -3,7 +3,11 @@ package com.phptravelers.tests;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
-public class DemoTests extends BaseTest{
+public final class DemoTests extends BaseTest{
+
+    private DemoTests() {
+
+    }
 
     @Test
     public void demoTest1() throws InterruptedException {
