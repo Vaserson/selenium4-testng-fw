@@ -11,7 +11,7 @@ public final class Driver {
 
     private Driver() {}
 
-    public static void initDriver() throws IOException {
+    public static void initDriver() throws Exception {
 //        if (DriverManager.getDriver() == null) {
         if (Objects.isNull(DriverManager.getDriver())) {
             System.setProperty("webdriver.chrome.driver", Constants.getChromedriverpath());
