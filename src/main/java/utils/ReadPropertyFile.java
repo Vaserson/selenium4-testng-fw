@@ -19,8 +19,12 @@ public final class ReadPropertyFile {
             FileInputStream file = new FileInputStream("src/main/resources/config.properties");
             property.load(file);
 
-            for(Object key : property.keySet()) {
+/*            for(Object key : property.keySet()) {
                 CONFIGMAP.put(String.valueOf(key), String.valueOf(property.get(key)));
+            }*/
+
+            for(Map.Entry<Object, Object> entry : property.entrySet()) {
+                CONFIGMAP.put(String.valueOf(entry.getKey()), String.valueOf(entry.getValue()));
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
