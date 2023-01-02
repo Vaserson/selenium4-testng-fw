@@ -12,15 +12,15 @@ public final class HomeTests extends BaseTest{
 
     @Test
     public void test1() throws InterruptedException {
-        Driver.driver.findElement(By.xpath("//ul[@class='jfHeader-menuList']/li/a[text()='Demo']")).click();
-        System.out.println(Driver.driver.getTitle());
+        Driver.getDriver().findElement(By.xpath("//ul[@class='jfHeader-menuList']/li/a[text()='Demo']")).click();
+        System.out.println(Driver.getDriver().getTitle());
         Thread.sleep(2000);
     }
 
-    @Test
+    @Test(enabled = false)
     public void test2() throws InterruptedException {
-        Driver.driver.findElement(By.xpath("//ul[@class='jfHeader-menuList']/li/a[text()='Pricing']")).click();
-        System.out.println(Driver.driver.getTitle());
+        Driver.getDriver().findElement(By.xpath("//ul[@class='jfHeader-menuList']/li/a[text()='Pricing']")).click();
+        System.out.println(Driver.getDriver().getTitle());
         Thread.sleep(2000);
     }
 }

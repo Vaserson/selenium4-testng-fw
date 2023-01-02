@@ -6,9 +6,25 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.Objects;
 
-public class Driver {
+public final class Driver {
 
-    public static WebDriver driver;
+    private Driver() {}
+
+    private static WebDriver driver;
+
+    private static ThreadLocal<WebDriver> dr = new ThreadLocal<>();
+
+    public static WebDriver getDriver() {
+        return dr.get();
+    }
+
+    public static void setDriver(WebDriver driverRef) {
+        dr.set(driverRef);
+    }
+
+    public static void unload() {
+        dr.remove();
+    }
 
     public static void initDriver() {
 //        if (driver == null) {
@@ -16,15 +32,17 @@ public class Driver {
             System.setProperty("webdriver.chrome.driver", Constants.getChromedriverpath());
             driver = new ChromeDriver();
 
-            driver.get("https://phptravels.com/");
+            setDriver(driver);
+            getDriver().get("https://phptravels.com/");
         }
     }
 
     public static void quitDriver() {
 //        if (driver != null) {
-        if (Objects.nonNull(driver)) {
-            driver.quit();
-            driver = null;
+        if (Objects.nonNull(getDriver())) {
+            getDriver().quit();
+//            driver = null;
+            unload();
         }
     }
 
