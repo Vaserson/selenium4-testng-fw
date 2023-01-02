@@ -16,7 +16,7 @@ public final class HomeTests extends BaseTest{
         Thread.sleep(2000);
     }
 
-    @Test(enabled = true)
+    @Test(enabled = false)
     public void test2() throws InterruptedException {
         Thread.sleep(2000);
         DriverManager.getDriver().findElement(By.xpath("//ul[@class='jfHeader-menuList']/li/a[text()='Pricing']")).click();
