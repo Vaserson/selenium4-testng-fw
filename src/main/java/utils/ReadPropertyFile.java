@@ -23,11 +23,9 @@ public final class ReadPropertyFile {
     }
 
     public static String getProperty(String key) throws Exception {
-        String value = "";
-        value = property.getProperty(key);
-        if (Objects.isNull(value)) {
+        if (Objects.isNull(property.getProperty(key)) || Objects.isNull(key)) {
             throw new Exception("No " + key + " property found");
         }
-        return value;
+        return property.getProperty(key);
     }
 }
