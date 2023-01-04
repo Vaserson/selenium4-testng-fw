@@ -1,4 +1,4 @@
-package framework.tests;
+package framework.phptravelers.tests;
 
 import driver.DriverManager;
 import framework.BaseTest;
