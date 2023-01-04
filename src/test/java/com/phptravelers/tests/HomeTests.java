@@ -26,10 +26,6 @@ public final class HomeTests extends BaseTest {
                 .as("Doesn't contain expected text").containsIgnoringCase("demo")
                 .matches("\\w.*" + "Phptravels")
                 .hasSizeBetween(15, 100);
-/*        Assert.assertTrue(Objects.nonNull(title));
-        Assert.assertTrue(title.toLowerCase().contains("demo"));
-//        Assert.assertTrue(title.toLowerCase().matches("\\w.*" + "demo"));
-        Assert.assertTrue(title.length() > 15 && title.length() < 100);*/
 
         List<WebElement> fields = DriverManager.getDriver().findElements(By.xpath("//input"));
         Assertions.assertThat(fields)
@@ -38,15 +34,6 @@ public final class HomeTests extends BaseTest {
 //                .extracting(e -> e.getText())
                 .contains("result");
         Assert.assertEquals(fields.size(), 5);
-
-/*        boolean isResultEnabled = false;
-        for (WebElement field : fields) {
-            if (field.getAttribute("placeholder").equalsIgnoreCase("result")) {
-                isResultEnabled = true;
-                break;
-            }
-        }
-        Assert.assertTrue(isResultEnabled);*/
     }
 
     @Test(enabled = false)

@@ -2,9 +2,7 @@ package constants;
 
 public final class Constants {
 
-    private Constants() {
-        // private constructor to avoid creating this class objects
-    }
+    private Constants() {}
 
     private static final String CHROMEDRIVERPATH = "src/test/resources/Drivers/chromedriver";
 

@@ -7,11 +7,6 @@ public final class DriverManager {
     private DriverManager() {}
 
     private static ThreadLocal<WebDriver> dr = new ThreadLocal<>();
-    // With default value
-/*    private static ThreadLocal<WebDriver> dr = ThreadLocal.withInitial(() -> {
-        System.setProperty("webdriver.chrome.driver", Constants.getChromedriverpath());
-        return new ChromeDriver();
-    });*/
 
     public static WebDriver getDriver() {
         return dr.get();
