@@ -1,10 +1,11 @@
-package com.phptravelers.tests;
+package framework.tests;
 
 import driver.DriverManager;
+import framework.BaseTest;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
-public final class DemoTests extends BaseTest{
+public final class DemoTests extends BaseTest {
 
     private DemoTests() {}
 

@@ -1,6 +1,7 @@
-package com.phptravelers.tests;
+package framework.tests;
 
 import driver.DriverManager;
+import framework.BaseTest;
 import org.assertj.core.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
