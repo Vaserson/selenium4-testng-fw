@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="Suite" parallel="true">
-    <test thread-count="2" name="Test" parallel="methods">
+    <test thread-count="1" name="Test" parallel="methods">
         <classes>
-            <class name="com.phptravelers.tests.HomeTests" />
-            <class name="com.phptravelers.tests.DemoTests" />
+            <class name="framework.orangeHRM.tests.LoginTests" />
         </classes>
     </test>
 </suite>

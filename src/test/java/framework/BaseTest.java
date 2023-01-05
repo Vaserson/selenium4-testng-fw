@@ -1,4 +1,4 @@
-package com.phptravelers.tests;
+package framework;
 
 import driver.Driver;
 import org.testng.annotations.AfterMethod;
