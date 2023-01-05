@@ -1,11 +1,9 @@
 package framework.orangeHRM.tests;
 
-import driver.DriverManager;
 import framework.BaseTest;
 import framework.orangeHRM.pages.HomePage;
 import framework.orangeHRM.pages.LoginPage;
 import org.assertj.core.api.Assertions;
-import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
 public final class LoginTests extends BaseTest {
