@@ -25,4 +25,8 @@ public final class LoginPage {
         return new HomePage();
     }
 
+    public String getTitle() {
+        return DriverManager.getDriver().getTitle();
+    }
+
 }
