@@ -12,14 +12,11 @@ public final class HomePage extends BasePage {
 
     public HomePage clickName() {
         click(lnkName, WaitStrategy.PRESENCE);
-//        DriverManager.getDriver().findElement(lnkName).click();
         return this;
     }
 
     public LoginPage clickLogoutBtn() {
         click(lnkLogout, WaitStrategy.CLICKABLE);
-//        DriverManager.getDriver().findElement(lnkLogout).click();
         return new LoginPage();
     }
-
 }

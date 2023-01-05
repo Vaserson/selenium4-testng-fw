@@ -12,6 +12,8 @@ import java.time.Duration;
 
 public class ExplicitWaitFactory {
 
+    private ExplicitWaitFactory(){}
+
     public static WebElement performExplicitWait(By by, WaitStrategy waitStrategy) {
         WebElement element = null;
 
@@ -29,5 +31,4 @@ public class ExplicitWaitFactory {
         }
         return element;
     }
-
 }
