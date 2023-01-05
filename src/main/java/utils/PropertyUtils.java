@@ -1,16 +1,17 @@
 package utils;
 
+import enums.ConfigProperty;
+
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Properties;
 
-public final class ReadPropertyFile {
+public final class PropertyUtils {
 
-    private ReadPropertyFile() {}
+    private PropertyUtils() {}
     private static Properties property = new Properties();
     private static final Map<String, String> CONFIGMAP = new HashMap<>();
 
@@ -27,11 +28,11 @@ public final class ReadPropertyFile {
         }
     }
 
-    public static String get(String key) throws Exception {
-        if (Objects.isNull(key) || Objects.isNull(CONFIGMAP.get(key))) {
+    public static String get(ConfigProperty key) throws Exception {
+        if (Objects.isNull(key) || Objects.isNull(CONFIGMAP.get(key.name().toLowerCase()))) {
             throw new Exception("No " + key + " property found");
         }
-        return CONFIGMAP.get(key);
+        return CONFIGMAP.get(key.name().toLowerCase());
     }
 
     public static String getProperty(String key) throws Exception {

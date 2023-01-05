@@ -1,8 +1,9 @@
 package driver;
 
 import constants.Constants;
+import enums.ConfigProperty;
 import org.openqa.selenium.chrome.ChromeDriver;
-import utils.ReadPropertyFile;
+import utils.PropertyUtils;
 
 import java.time.Duration;
 import java.util.Objects;
@@ -16,7 +17,7 @@ public final class Driver {
             System.setProperty("webdriver.chrome.driver", Constants.getChromedriverpath());
             DriverManager.setDriver(new ChromeDriver());
             DriverManager.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-            DriverManager.getDriver().get(ReadPropertyFile.get("url"));
+            DriverManager.getDriver().get(PropertyUtils.get(ConfigProperty.URL));
         }
     }
 

@@ -1,5 +1,6 @@
 package framework.orangeHRM.pages;
 
+import enums.WaitStrategy;
 import framework.BasePage;
 import org.openqa.selenium.By;
 
@@ -10,13 +11,13 @@ public final class HomePage extends BasePage {
 
 
     public HomePage clickName() {
-        click(lnkName);
+        click(lnkName, WaitStrategy.PRESENCE);
 //        DriverManager.getDriver().findElement(lnkName).click();
         return this;
     }
 
     public LoginPage clickLogoutBtn() {
-        click(lnkLogout);
+        click(lnkLogout, WaitStrategy.CLICKABLE);
 //        DriverManager.getDriver().findElement(lnkLogout).click();
         return new LoginPage();
     }
