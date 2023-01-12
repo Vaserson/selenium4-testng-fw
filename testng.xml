@@ -3,7 +3,8 @@
 <suite name="Suite" parallel="true">
     <test thread-count="1" name="Test" parallel="methods">
         <classes>
-            <class name="framework.orangeHRM.tests.LoginTests" />
+<!--            <class name="framework.orangeHRM.tests.LoginTests" />-->
+            <class name="framework.dataProviderTest.DataProviderTest" />
         </classes>
     </test>
 </suite>
