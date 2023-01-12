@@ -2,6 +2,7 @@ package utils;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import constants.Constants;
 import enums.ConfigProperty;
 
 import java.io.File;
@@ -19,10 +20,7 @@ public class JsonUtils {
 
     static {
         try {
-            System.out.println("111222333");
-            CONFIGMAP = new ObjectMapper().readValue(new File("src/main/java/utils/properties.json"), new TypeReference<Map<String, String>>() {});
-            System.out.println(CONFIGMAP.get("url") + "111222333");
-
+            CONFIGMAP = new ObjectMapper().readValue(new File(Constants.getJsonConfigFilePath()), new TypeReference<>() {});
         } catch (IOException e) {
             e.printStackTrace();
         }
