@@ -9,9 +9,9 @@
     </listeners>
     <test thread-count="1" name="Test" parallel="methods">
         <classes>
-<!--            <class name="framework.orangeHRM.tests.LoginTests" />-->
+            <class name="framework.orangeHRM.tests.LoginTests" />
 <!--            <class name="framework.dataProviderTest.DataProviderTest" />-->
-            <class name="listeners.Runner" />
+<!--            <class name="listeners.Runner" />-->
         </classes>
     </test>
 </suite>

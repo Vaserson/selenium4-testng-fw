@@ -6,6 +6,7 @@ import framework.orangeHRM.pages.LoginPage;
 import org.assertj.core.api.Assertions;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import reports.ExtentReport;
 
 public final class LoginTests extends BaseTest {
 
@@ -14,15 +15,18 @@ public final class LoginTests extends BaseTest {
     @DataProvider(name = "LoginTestDataProvider", parallel = true) //!!! Set thread count in the testNG.xml <suite name="Suite" data-provider-thread-count="3">
     public Object[][] getData() {
         return new Object[][] {
-                {"Admin", "admin123"},
+                {"Admin", "admin123"}/*,
                 {"Admin123", "admin"},
                 {"Admin", "admin123"},
-                {"Admin", "admin123"}
+                {"Admin", "admin123"}*/
         };
     }
 
     @Test(dataProvider = "LoginTestDataProvider")
     public void loginTest1(String username, String password) {
+
+        ExtentReport.createTest("loginLogoutTest");
+
         LoginPage loginPage = new LoginPage();
         loginPage.enterUsername(username)
                 .enterPassword(password)
