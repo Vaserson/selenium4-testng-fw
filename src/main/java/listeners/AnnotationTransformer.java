@@ -39,7 +39,9 @@ public class AnnotationTransformer implements IAnnotationTransformer {
                 if (list.get(i).get("enabled").equals(false)) {
                     annotation.setEnabled(false);
                 } else {
-                    annotation.setInvocationCount(Integer.parseInt((String) list.get(i).get("count")));
+                    // !!! DO NOT COMBINE (annotation.setRetryAnalyzer) WITH (annotation.setInvocationCount)
+//                    annotation.setInvocationCount(Integer.parseInt((String) list.get(i).get("count")));
+                    annotation.setRetryAnalyzer(Retry.class);
                 }
             }
         }

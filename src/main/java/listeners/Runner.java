@@ -1,5 +1,6 @@
 package listeners;
 
+import org.testng.Assert;
 import org.testng.annotations.*;
 
 public class Runner {
@@ -24,6 +25,7 @@ public class Runner {
     }
 
     @Test
+//    @Test(retryAnalyzer=Retry.class)
     public void test1() {
         System.out.println("Test1");
     }
@@ -31,6 +33,7 @@ public class Runner {
     @Test
     public void test2() {
         System.out.println("Test2");
+        Assert.assertTrue(false);
     }
 
     @Test

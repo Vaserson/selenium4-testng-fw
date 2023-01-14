@@ -5,6 +5,7 @@
 <!--        <listener class-name="listeners.ListenerClass" />-->
 <!--        <listener class-name="listeners.MethodInterceptor" />-->
         <listener class-name="listeners.AnnotationTransformer" />
+<!--        <listener class-name="listeners.Retry" />-->
     </listeners>
     <test thread-count="1" name="Test" parallel="methods">
         <classes>
