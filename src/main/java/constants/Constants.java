@@ -1,5 +1,8 @@
 package constants;
 
+import enums.ConfigProperty;
+import utils.PropertyUtils;
+
 public final class Constants {
 
     private Constants() {}
@@ -7,6 +10,24 @@ public final class Constants {
     private static final String CHROMEDRIVERPATH = "src/test/resources/Drivers/chromedriver";
     private static final String JSONCONFIGFILEPATH = "src/main/java/utils/properties.json";
     private static final int EXPLICITWAIT = 10;
+    private static final String EXTENTREPORTFOLDERPATH = "extent-report-output/";
+    private static  String extentReportFilePath = "";
+
+
+    public static String getExtentReportFilePath() throws Exception {
+        if (extentReportFilePath.isEmpty()) {
+            extentReportFilePath = createReportPath();
+        }
+        return extentReportFilePath;
+    }
+
+    private static String createReportPath() throws Exception {
+        if (PropertyUtils.get(ConfigProperty.OVERRIDEREPORTS).equalsIgnoreCase("no")) {
+            return EXTENTREPORTFOLDERPATH + System.currentTimeMillis() + "_index.html";
+        } else {
+            return EXTENTREPORTFOLDERPATH + "index.html";
+        }
+    }
 
     public static String getChromedriverpath() {
         return CHROMEDRIVERPATH;

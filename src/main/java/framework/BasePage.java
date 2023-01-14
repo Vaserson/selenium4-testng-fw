@@ -14,11 +14,19 @@ public class BasePage {
 
     protected void click(By by, WaitStrategy waitStrategy, String elementName) {
         ExplicitWaitFactory.performExplicitWait(by, waitStrategy).click();
-        ExtentLogger.pass(elementName + " is clicked");
+        try {
+            ExtentLogger.pass(elementName + " is clicked", true);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     protected void sendKeys(By by, String value, WaitStrategy waitStrategy, String elementName) {
         ExplicitWaitFactory.performExplicitWait(by, waitStrategy).sendKeys(value);
-        ExtentLogger.pass(value + " is set to the " + elementName + " element.");
+        try {
+            ExtentLogger.pass(value + " is set to the " + elementName + " element.", true);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

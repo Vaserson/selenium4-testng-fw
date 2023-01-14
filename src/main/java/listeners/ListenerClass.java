@@ -15,15 +15,19 @@ public class ListenerClass implements ITestListener, ISuiteListener {
 
     @Override
     public void onStart(ISuite iSuite) {
-        ExtentReport.initReports();
+        try {
+            ExtentReport.initReports();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void onFinish(ISuite iSuite) {
         try {
             ExtentReport.flushReports();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -39,7 +43,11 @@ public class ListenerClass implements ITestListener, ISuiteListener {
 
     @Override
     public void onTestFailure(ITestResult result) {
-        ExtentLogger.fail(result.getMethod().getMethodName() + " is failed");
+        try {
+            ExtentLogger.fail(result.getMethod().getMethodName() + " is failed", true);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
