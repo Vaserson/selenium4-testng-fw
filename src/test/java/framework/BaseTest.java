@@ -1,6 +1,7 @@
 package framework;
 
 import driver.Driver;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
@@ -8,6 +9,7 @@ import org.testng.annotations.BeforeSuite;
 import reports.ExtentReport;
 
 import java.io.IOException;
+import java.lang.reflect.Method;
 
 public class BaseTest {
 
@@ -26,7 +28,9 @@ public class BaseTest {
         spark.config().setReportName("Report Training");
         *//* ----------- SetUp ends ----------- *//*
     }*/
-    @BeforeSuite
+
+    // Moved to Listener
+/*    @BeforeSuite
     public void beforeSuite() {
         ExtentReport.initReports();
     }
@@ -34,16 +38,18 @@ public class BaseTest {
     @AfterSuite
     public void afterSuite() throws IOException {
         ExtentReport.flushReports();
-    }
+    }*/
 
 
     @BeforeMethod
     protected void setUp() throws Exception {
+//        ExtentReport.createTest(m.getName()); // Moved to Listener
         Driver.initDriver();
     }
 
     @AfterMethod
     protected void tearDown() {
+//        if(result.equals(ITestResult.SUCCESS)) // Better to use Listener class
         Driver.quitDriver();
     }
 }

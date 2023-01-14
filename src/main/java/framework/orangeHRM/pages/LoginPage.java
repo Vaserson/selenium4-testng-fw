@@ -16,17 +16,17 @@ public final class LoginPage extends BasePage {
     }
 
     public LoginPage enterUsername(String username) {
-        sendKeys(fldLogin, username, WaitStrategy.VISIBLE);
+        sendKeys(fldLogin, username, WaitStrategy.VISIBLE, "Username field");
         return this;
     }
 
     public LoginPage enterPassword(String password) {
-        sendKeys(fldPassword, password, WaitStrategy.VISIBLE);
+        sendKeys(fldPassword, password, WaitStrategy.VISIBLE, "Password field");
         return this;
     }
 
     public HomePage clickSubmitBtn() {
-        click(btnSubmit, WaitStrategy.CLICKABLE);
+        click(btnSubmit, WaitStrategy.CLICKABLE, "Submit button");
         return new HomePage();
     }
 }

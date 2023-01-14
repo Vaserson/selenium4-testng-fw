@@ -3,6 +3,8 @@ package framework.orangeHRM.pages;
 import enums.WaitStrategy;
 import framework.BasePage;
 import org.openqa.selenium.By;
+import reports.ExtentLogger;
+import reports.ExtentManager;
 import reports.ExtentReport;
 
 public final class HomePage extends BasePage {
@@ -12,14 +14,16 @@ public final class HomePage extends BasePage {
 
 
     public HomePage clickName() {
-        click(lnkName, WaitStrategy.PRESENCE);
-        ExtentReport.test.pass("welcome CLICKED");
+        click(lnkName, WaitStrategy.PRESENCE, "Name link");
+//        ExtentLogger.pass("name CLICKED"); // Moved to BasePage
+//        ExtentManager.getExtentTest().pass("name CLICKED");
         return this;
     }
 
     public LoginPage clickLogoutBtn() {
-        click(lnkLogout, WaitStrategy.CLICKABLE);
-        ExtentReport.test.pass("logout CLICKED");
+        click(lnkLogout, WaitStrategy.CLICKABLE, "Logout button");
+//        ExtentLogger.pass("logout CLICKED");// Moved to BasePage
+//        ExtentManager.getExtentTest().pass("logout CLICKED");
         return new LoginPage();
     }
 }

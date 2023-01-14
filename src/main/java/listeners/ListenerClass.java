@@ -4,37 +4,46 @@ import org.testng.ISuite;
 import org.testng.ISuiteListener;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
+import reports.ExtentLogger;
+import reports.ExtentReport;
+
+import java.io.IOException;
+import java.lang.reflect.Method;
+
 
 public class ListenerClass implements ITestListener, ISuiteListener {
 
     @Override
     public void onStart(ISuite iSuite) {
-        System.out.println("before suite in Listener");
+        ExtentReport.initReports();
     }
 
     @Override
     public void onFinish(ISuite iSuite) {
-        System.out.println("after suite in Listener");
+        try {
+            ExtentReport.flushReports();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
     public void onTestStart(ITestResult result) {
-        System.out.println("before method in Listener");
+        ExtentReport.createTest(result.getMethod().getMethodName());
     }
 
     @Override
     public void onTestSuccess(ITestResult result) {
-        System.out.println("after method PASS in Listener");
+        ExtentLogger.pass(result.getMethod().getMethodName() + " is passed");
     }
 
     @Override
     public void onTestFailure(ITestResult result) {
-        System.out.println("after method FAIL in Listener");
+        ExtentLogger.fail(result.getMethod().getMethodName() + " is failed");
     }
 
     @Override
     public void onTestSkipped(ITestResult result) {
-        System.out.println("after method SKIPPED in Listener");
+        ExtentLogger.skip(result.getMethod().getMethodName() + " is skipped");
     }
-
 }

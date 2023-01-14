@@ -12,7 +12,7 @@ import java.util.Objects;
 
 public class ExtentReport {
     private static ExtentReports extent;
-    public static ExtentTest test;
+//    public static ExtentTest test; // No need after ExtentManager is added
 
     private ExtentReport(){}
 
@@ -29,7 +29,9 @@ public class ExtentReport {
     }
 
     public static void createTest(String testName) {
-        test = extent.createTest(testName);
+        /*ExtentTest test = extent.createTest(testName);
+        ExtentManager.setExtentTest(test);*/ //----- OR
+        ExtentManager.setExtentTest(extent.createTest(testName));
     }
 
     public static void flushReports() throws IOException {

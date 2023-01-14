@@ -15,17 +15,29 @@ public final class LoginTests extends BaseTest {
     @DataProvider(name = "LoginTestDataProvider", parallel = true) //!!! Set thread count in the testNG.xml <suite name="Suite" data-provider-thread-count="3">
     public Object[][] getData() {
         return new Object[][] {
-                {"Admin", "admin123"}/*,
-                {"Admin123", "admin"},
+                {"Admin", "admin123"},
+                {"Admin", "admin123"},
+                {"Admin123", "admin"}/*,
                 {"Admin", "admin123"},
                 {"Admin", "admin123"}*/
         };
     }
 
     @Test(dataProvider = "LoginTestDataProvider")
-    public void loginTest1(String username, String password) {
+    public void loginTest0(String username, String password) {
 
-        ExtentReport.createTest("loginLogoutTest");
+//        ExtentReport.createTest("loginLogoutTest"); // Move to BaseTest and get method name dynamically
+
+        LoginPage loginPage = new LoginPage();
+        loginPage.enterUsername(username)
+                .enterPassword(password)
+                .clickSubmitBtn()
+                .clickName()
+                .clickLogoutBtn();
+    }
+
+    @Test(dataProvider = "LoginTestDataProvider")
+    public void loginTest1(String username, String password) {
 
         LoginPage loginPage = new LoginPage();
         loginPage.enterUsername(username)
