@@ -27,7 +27,7 @@
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>7.7.1</version>
-            <scope>test</scope> <!-- visible only for src.test path -->
+            <scope>compile</scope> <!-- visible only for src.test path -->
             <!-- <scope>compile</scope> visible for src.main path also -->
         </dependency>
 
