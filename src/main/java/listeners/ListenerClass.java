@@ -45,9 +45,14 @@ public class ListenerClass implements ITestListener, ISuiteListener {
     @Override
     public void onTestFailure(ITestResult result) {
         try {
-            ExtentLogger.fail(result.getMethod().getMethodName() + " is failed", true);
-            ExtentLogger.fail(result.getThrowable().toString()); // To print the error
-            ExtentLogger.fail(Arrays.toString(result.getThrowable().getStackTrace())); // To print the stacktrace (array)
+            //todo "\n" doesn't work, find a way to separate method name, error and stacktrace in one Fail.
+            ExtentLogger.fail(result.getMethod().getMethodName() + " is failed"
+                    + "\n"
+                    + result.getThrowable().toString() + "\n" // To print the error
+                    + Arrays.toString(result.getThrowable().getStackTrace()) // To print the stacktrace (array)
+                    , true);
+/*            ExtentLogger.fail(result.getThrowable().toString()); // To print the error
+            ExtentLogger.fail(Arrays.toString(result.getThrowable().getStackTrace())); // To print the stacktrace (array)*/
         } catch (Exception e) {
             e.printStackTrace();
         }
