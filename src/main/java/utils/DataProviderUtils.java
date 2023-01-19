@@ -8,12 +8,14 @@ import java.util.List;
 import java.util.Map;
 
 public final class DataProviderUtils {
+    private static List<Map<String, String>> list = new ArrayList<>();
 
     @DataProvider
     public static Object[][] getData(Method m) {
         String testName = m.getName();
-
-        List<Map<String, String>> list = ExcelUtils.getTestData("DATA");
+        if (list.isEmpty()) {
+            list = ExcelUtils.getTestData("DATA");
+        }
 
         List<Map<String, String>> filteredList = new ArrayList<>();
 
@@ -24,6 +26,7 @@ public final class DataProviderUtils {
                 }
             }
         }
+        list.removeAll(filteredList); // Remove tests that was filtered before to iterate less next time
 
         Object[][] data = new Object[filteredList.size()][];
         for (int i = 0; i < filteredList.size(); i++) {
