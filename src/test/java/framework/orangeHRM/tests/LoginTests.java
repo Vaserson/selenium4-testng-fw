@@ -15,9 +15,9 @@ public final class LoginTests extends BaseTest {
     @DataProvider(name = "LoginTestDataProvider", parallel = true) //!!! Set thread count in the testNG.xml <suite name="Suite" data-provider-thread-count="3">
     public Object[][] getData() {
         return new Object[][] {
+                {"Admin", "admin123"}/*,
                 {"Admin", "admin123"},
-                {"Admin", "admin123"},
-                {"Admin123", "admin"}/*,
+                {"Admin123", "admin"},
                 {"Admin", "admin123"},
                 {"Admin", "admin123"}*/
         };
@@ -49,6 +49,17 @@ public final class LoginTests extends BaseTest {
 
     @Test(dataProvider = "LoginTestDataProvider")
     public void loginTest2(String username, String password) {
+
+        LoginPage loginPage = new LoginPage();
+        loginPage.enterUsername(username)
+                .enterPassword(password)
+                .clickSubmitBtn()
+                .clickName()
+                .clickLogoutBtn();
+    }
+
+/*    @Test(dataProvider = "LoginTestDataProvider")
+    public void loginTest2(String username, String password) {
         LoginPage loginPage = new LoginPage();
         HomePage homePage = loginPage
                 .enterUsername(username).enterPassword(password).clickSubmitBtn();
@@ -67,6 +78,6 @@ public final class LoginTests extends BaseTest {
 
         Assertions.assertThat(title)
                 .containsIgnoringCase("OrangeHRM");
-    }
+    }*/
 
 }

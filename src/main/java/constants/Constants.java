@@ -11,6 +11,7 @@ public final class Constants {
     private static final String JSONCONFIGFILEPATH = "src/main/java/utils/properties.json";
     private static final int EXPLICITWAIT = 10;
     private static final String EXTENTREPORTFOLDERPATH = "extent-report-output/";
+    private static final String TESTDATAPATH = "src/test/resources/excel/testData.xlsx";
     private static  String extentReportFilePath = "";
 
 
@@ -40,5 +41,10 @@ public final class Constants {
 
     public static int getExplicitwait() {
         return EXPLICITWAIT;
+    }
+
+
+    public static String getTestDataPath() {
+        return TESTDATAPATH;
     }
 }

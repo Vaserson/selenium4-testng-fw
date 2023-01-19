@@ -3,6 +3,7 @@
 <suite name="Suite" data-provider-thread-count="3">
     <listeners>
         <listener class-name="listeners.ListenerClass" />
+        <listener class-name="listeners.MethodInterceptor" />
 <!--        <listener class-name="demo.listeners.ListenerClass" />-->
 <!--        <listener class-name="demo.listeners.MethodInterceptor" />-->
 <!--        <listener class-name="demo.listeners.AnnotationTransformer" />-->
@@ -11,9 +12,9 @@
     <test thread-count="1" name="Test" parallel="methods">
         <classes>
             <class name="framework.orangeHRM.tests.LoginTests">
-                <methods>
-                    <include name="loginTest0" />
-                </methods>
+<!--                <methods>-->
+<!--                    <include name="loginTest0" />-->
+<!--                </methods>-->
             </class>
 <!--            <class name="framework.dataProviderTest.DataProviderTest" />-->
 <!--            <class name="listeners.Runner" />-->
