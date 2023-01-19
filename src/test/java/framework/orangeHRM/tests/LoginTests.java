@@ -3,6 +3,7 @@ package framework.orangeHRM.tests;
 import framework.BaseTest;
 import framework.orangeHRM.pages.HomePage;
 import framework.orangeHRM.pages.LoginPage;
+import listeners.RetryFailedTests;
 import org.assertj.core.api.Assertions;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -26,7 +27,7 @@ public final class LoginTests extends BaseTest {
         };
     }
 
-    @Test(dataProvider = "getData", dataProviderClass = DataProviderUtils.class)
+    @Test(dataProvider = "getData", dataProviderClass = DataProviderUtils.class, retryAnalyzer = RetryFailedTests.class)
     public void loginTest0(Map<String, String> data) {
 
 //        ExtentReport.createTest("loginLogoutTest"); // Move to BaseTest and get method name dynamically
@@ -39,7 +40,7 @@ public final class LoginTests extends BaseTest {
                 .clickLogoutBtn();
     }
 
-    @Test(dataProvider = "getData", dataProviderClass = DataProviderUtils.class)
+    @Test(dataProvider = "getData", dataProviderClass = DataProviderUtils.class, retryAnalyzer = RetryFailedTests.class)
     public void loginTest1(Map<String, String> data) {
 
         LoginPage loginPage = new LoginPage();
@@ -50,7 +51,7 @@ public final class LoginTests extends BaseTest {
                 .clickLogoutBtn();
     }
 
-    @Test(dataProvider = "getData", dataProviderClass = DataProviderUtils.class)
+    @Test(dataProvider = "getData", dataProviderClass = DataProviderUtils.class, retryAnalyzer = RetryFailedTests.class)
     public void loginTest2(Map<String, String> data) {
 
         LoginPage loginPage = new LoginPage();
