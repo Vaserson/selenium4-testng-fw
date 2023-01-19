@@ -17,7 +17,7 @@ public final class PropertyUtils {
 
     static {
         try {
-            FileInputStream file = new FileInputStream("src/main/resources/orangeHRM.properties");
+            FileInputStream file = new FileInputStream("src/test/resources/config/orangeHRM.properties");
             property.load(file);
             for(Map.Entry<Object, Object> entry : property.entrySet()) {
                 CONFIGMAP.put(String.valueOf(entry.getKey()), String.valueOf(entry.getValue()));

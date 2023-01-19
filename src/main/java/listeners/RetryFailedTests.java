@@ -1,7 +1,9 @@
 package listeners;
 
+import enums.ConfigProperty;
 import org.testng.IRetryAnalyzer;
 import org.testng.ITestResult;
+import utils.PropertyUtils;
 
 public class RetryFailedTests implements IRetryAnalyzer {
 
@@ -14,8 +16,15 @@ public class RetryFailedTests implements IRetryAnalyzer {
             count++;
             return true;
         }*/ // OR just
-        boolean retry = count < retries;
-        count++;
+        boolean retry = false;
+        try {
+            if (PropertyUtils.get(ConfigProperty.RETRYFAILEDTESTS).equalsIgnoreCase("yes")) {
+                retry = count < retries;
+                count++;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return retry;
     }
 }
