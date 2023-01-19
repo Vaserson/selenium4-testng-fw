@@ -13,7 +13,7 @@ public final class ExcelUtils {
     private ExcelUtils() {
     }
 
-    public static List<Map<String, String>> getTestData() {
+    public static List<Map<String, String>> getTestData(String sheetName) {
         FileInputStream fs = null;
         List<Map<String, String>> list = null;
 
@@ -21,7 +21,6 @@ public final class ExcelUtils {
         try {
             fs = new FileInputStream(Constants.getTestDataPath());
             XSSFWorkbook wb = new XSSFWorkbook(fs);
-            String sheetName = "RUNMANAGER";
             XSSFSheet sheet = wb.getSheet(sheetName);
 
             int lastRowNum = sheet.getLastRowNum();

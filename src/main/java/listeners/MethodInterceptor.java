@@ -14,7 +14,7 @@ public class MethodInterceptor implements IMethodInterceptor {
 
     @Override
     public List<IMethodInstance> intercept(List<IMethodInstance> methods, ITestContext iTestContext) {
-        List<Map<String, String>> list = ExcelUtils.getTestData();
+        List<Map<String, String>> list = ExcelUtils.getTestData("RUNMANAGER");
         List<IMethodInstance> result = new ArrayList<>();
 
         for (int i = 0; i < methods.size(); i++) {

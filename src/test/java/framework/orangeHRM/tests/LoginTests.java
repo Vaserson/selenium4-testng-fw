@@ -7,6 +7,9 @@ import org.assertj.core.api.Assertions;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import reports.ExtentReport;
+import utils.DataProviderUtils;
+
+import java.util.Map;
 
 public final class LoginTests extends BaseTest {
 
@@ -23,36 +26,36 @@ public final class LoginTests extends BaseTest {
         };
     }
 
-    @Test(dataProvider = "LoginTestDataProvider")
-    public void loginTest0(String username, String password) {
+    @Test(dataProvider = "getData", dataProviderClass = DataProviderUtils.class)
+    public void loginTest0(Map<String, String> data) {
 
 //        ExtentReport.createTest("loginLogoutTest"); // Move to BaseTest and get method name dynamically
 
         LoginPage loginPage = new LoginPage();
-        loginPage.enterUsername(username)
-                .enterPassword(password)
+        loginPage.enterUsername(data.get("username"))
+                .enterPassword(data.get("password"))
                 .clickSubmitBtn()
                 .clickName()
                 .clickLogoutBtn();
     }
 
-    @Test(dataProvider = "LoginTestDataProvider")
-    public void loginTest1(String username, String password) {
+    @Test(dataProvider = "getData", dataProviderClass = DataProviderUtils.class)
+    public void loginTest1(Map<String, String> data) {
 
         LoginPage loginPage = new LoginPage();
-        loginPage.enterUsername(username)
-                .enterPassword(password)
+        loginPage.enterUsername(data.get("username"))
+                .enterPassword(data.get("password"))
                 .clickSubmitBtn()
                 .clickName()
                 .clickLogoutBtn();
     }
 
-    @Test(dataProvider = "LoginTestDataProvider")
-    public void loginTest2(String username, String password) {
+    @Test(dataProvider = "getData", dataProviderClass = DataProviderUtils.class)
+    public void loginTest2(Map<String, String> data) {
 
         LoginPage loginPage = new LoginPage();
-        loginPage.enterUsername(username)
-                .enterPassword(password)
+        loginPage.enterUsername(data.get("username"))
+                .enterPassword(data.get("password"))
                 .clickSubmitBtn()
                 .clickName()
                 .clickLogoutBtn();
