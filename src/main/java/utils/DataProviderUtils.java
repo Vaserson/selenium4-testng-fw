@@ -26,7 +26,9 @@ public final class DataProviderUtils {
                 }
             }
         }
-        list.removeAll(filteredList); // Remove tests that was filtered before to iterate less next time
+
+        // It's better not to remove anything from ArrayList (or use LinkedList), while we search by index
+//        list.removeAll(filteredList); // Remove tests that was filtered before to iterate less next time
 
         Object[][] data = new Object[filteredList.size()][];
         for (int i = 0; i < filteredList.size(); i++) {
