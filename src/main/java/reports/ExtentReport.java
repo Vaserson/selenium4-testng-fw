@@ -38,7 +38,8 @@ public class ExtentReport {
     public static void flushReports() throws Exception {
         if (Objects.nonNull(extent)) {
         extent.flush();
-        Desktop.getDesktop().browse(new File(Constants.getExtentReportFilePath()).toURI()); // Opens in default system browser
         }
+        ExtentManager.unload();
+        Desktop.getDesktop().browse(new File(Constants.getExtentReportFilePath()).toURI()); // Opens in default system browser
     }
 }
