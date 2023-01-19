@@ -4,6 +4,7 @@
     <listeners>
         <listener class-name="listeners.ListenerClass" />
         <listener class-name="listeners.MethodInterceptor" />
+        <listener class-name="listeners.AnnotationTransformer" />
 <!--        <listener class-name="demo.listeners.ListenerClass" />-->
 <!--        <listener class-name="demo.listeners.MethodInterceptor" />-->
 <!--        <listener class-name="demo.listeners.AnnotationTransformer" />-->
