@@ -15,7 +15,7 @@ public final class AmazonTest extends BaseTest {
         String title = new AmazonHomePage()
                 .clickHamburger()
                 .clickComputers()
-                .clickComputerComponents()
+                .clickSubMenuItem("Computer Components")
                 .getTitle();
         System.out.println("title = " + title);
     }
