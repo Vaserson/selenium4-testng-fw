@@ -1,11 +1,8 @@
-package framework.orangeHRM.pages;
+package framework.pages.orangeHRM;
 
 import enums.WaitStrategy;
 import framework.BasePage;
 import org.openqa.selenium.By;
-import reports.ExtentLogger;
-import reports.ExtentManager;
-import reports.ExtentReport;
 
 public final class HomePage extends BasePage {
 

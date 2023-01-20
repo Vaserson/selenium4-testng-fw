@@ -1,14 +1,9 @@
-package framework.orangeHRM.tests;
+package framework.tests.orangeHRM;
 
 import framework.BaseTest;
-import framework.orangeHRM.pages.HomePage;
-import framework.orangeHRM.pages.LoginPage;
-import listeners.RetryFailedTests;
-import org.assertj.core.api.Assertions;
+import framework.pages.orangeHRM.LoginPage;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import reports.ExtentReport;
-import utils.DataProviderUtils;
 
 import java.util.Map;
 

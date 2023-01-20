@@ -1,4 +1,4 @@
-package framework.dataProviderTest;
+package framework.tests.dataProvider;
 
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellType;

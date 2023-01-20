@@ -1,4 +1,4 @@
-package framework.dataProviderTest;
+package framework.tests.dataProvider;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.testng.annotations.DataProvider;

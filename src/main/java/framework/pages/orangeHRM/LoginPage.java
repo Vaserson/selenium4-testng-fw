@@ -1,4 +1,4 @@
-package framework.orangeHRM.pages;
+package framework.pages.orangeHRM;
 
 import enums.WaitStrategy;
 import framework.BasePage;
