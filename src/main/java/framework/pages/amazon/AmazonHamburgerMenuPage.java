@@ -13,7 +13,7 @@ public class AmazonHamburgerMenuPage extends BasePage {
 
     private String linkComputers = "//div[text()='Computers']/parent::a";
 
-    private String linkSubMenu = "//a[text()='%replaceable%']";
+    private String linkSubMenu = "//a[text()='%s']";
 
     //todo Will be optimized for different pages
     public AmazonComputerComponents clickSubMenuItem(String menutext) {
