@@ -11,8 +11,7 @@ import utils.DynamicXpathUtils;
 
 public class AmazonHamburgerMenuPage extends BasePage {
 
-    @FindBy(xpath = "//div[text()='Computers']/parent::a")
-    private WebElement linkComputers;
+    private String linkComputers = "//div[text()='Computers']/parent::a";
 
     private String linkSubMenu = "//a[text()='%replaceable%']";
 
@@ -33,7 +32,7 @@ public class AmazonHamburgerMenuPage extends BasePage {
 
 
     public AmazonHamburgerMenuPage clickComputers() {
-        linkComputers.click();
+        click(By.xpath(linkComputers), WaitStrategy.CLICKABLE, "Computers");
         return this;
     }
 }
