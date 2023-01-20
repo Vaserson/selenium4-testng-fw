@@ -10,7 +10,7 @@ import java.util.Map;
 public final class DataProviderUtils {
     private static List<Map<String, String>> list = new ArrayList<>();
 
-    @DataProvider
+    @DataProvider(parallel = true)
     public static Object[][] getData(Method m) {
         String testName = m.getName();
         if (list.isEmpty()) {

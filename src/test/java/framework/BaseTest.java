@@ -10,6 +10,7 @@ import reports.ExtentReport;
 
 import java.io.IOException;
 import java.lang.reflect.Method;
+import java.util.Map;
 
 public class BaseTest {
 
@@ -40,11 +41,12 @@ public class BaseTest {
         ExtentReport.flushReports();
     }*/
 
-
+    @SuppressWarnings("unchecked")
     @BeforeMethod
-    protected void setUp() throws Exception {
+    protected void setUp(Object[] data) throws Exception {
+        Map<String, String> map = (Map<String, String>)data[0];
 //        ExtentReport.createTest(m.getName()); // Moved to Listener
-        Driver.initDriver();
+        Driver.initDriver(map.get("browser"));
     }
 
     @AfterMethod

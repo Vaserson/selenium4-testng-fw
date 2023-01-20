@@ -8,6 +8,7 @@ public final class Constants {
     private Constants() {}
 
     private static final String CHROMEDRIVERPATH = "src/test/resources/Drivers/chromedriver";
+    private static final String GECKODRIVERPATH = "src/test/resources/Drivers/geckodriver";
     private static final String JSONCONFIGFILEPATH = "src/main/java/utils/properties.json";
     private static final int EXPLICITWAIT = 10;
     private static final String EXTENTREPORTFOLDERPATH = "extent-report-output/";
@@ -30,8 +31,12 @@ public final class Constants {
         }
     }
 
-    public static String getChromedriverpath() {
+    public static String getChromeDriverPath() {
         return CHROMEDRIVERPATH;
+    }
+
+    public static String getGeckoDriverPath() {
+        return GECKODRIVERPATH;
     }
 
     public static String getJsonConfigFilePath() {
