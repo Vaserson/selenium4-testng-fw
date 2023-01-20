@@ -1,6 +1,7 @@
 package framework.tests.amazon;
 
 import annotations.FrameworkAnnotation;
+import enums.CategoryType;
 import framework.BaseTest;
 import framework.pages.amazon.AmazonHomePage;
 import org.testng.annotations.Test;
@@ -12,7 +13,7 @@ public final class AmazonTest extends BaseTest {
 
     private AmazonTest(){}
 
-    @FrameworkAnnotation(author = {"Iryna", "Mariia"}, category = {"Smoke", "Regression"})
+    @FrameworkAnnotation(author = {"Iryna", "Mariia"}, category = {CategoryType.REGRESSION, CategoryType.SMOKE})
     @Test
     public void testAmazon(Map<String, String> data) {
 

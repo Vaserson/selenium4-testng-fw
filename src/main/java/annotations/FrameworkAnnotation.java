@@ -1,5 +1,7 @@
 package annotations;
 
+import enums.CategoryType;
+
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -17,6 +19,6 @@ public @interface FrameworkAnnotation {
     public String[] author(); // without default value (will be mandatory)
     // @FrameworkAnnotation({"Someone", "Somewho"})
 
-    public String[] category();
+    public CategoryType[] category();
 
 }
