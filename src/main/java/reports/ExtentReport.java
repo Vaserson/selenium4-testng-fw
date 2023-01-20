@@ -42,4 +42,16 @@ public class ExtentReport {
         ExtentManager.unload();
         Desktop.getDesktop().browse(new File(Constants.getExtentReportFilePath()).toURI()); // Opens in default system browser
     }
+
+    public static void addAuthors(String[] authors) {
+        for (String temp : authors) {
+            ExtentManager.getExtentTest().assignAuthor(temp);
+        }
+    }
+
+    public static void addCategories(String[] categories) {
+        for (String temp : categories) {
+            ExtentManager.getExtentTest().assignCategory(temp);
+        }
+    }
 }
