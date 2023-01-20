@@ -12,7 +12,8 @@
     </listeners>
     <test thread-count="1" name="Test" parallel="methods">
         <classes>
-            <class name="framework.tests.orangeHRM.LoginTests">
+            <class name="framework.tests.amazon.AmazonTest">
+<!--            <class name="framework.tests.orangeHRM.LoginTests">-->
 <!--                <methods>-->
 <!--                    <include name="loginTest0" />-->
 <!--                </methods>-->

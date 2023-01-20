@@ -5,6 +5,7 @@ import enums.ConfigProperty;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import utils.JsonUtils;
+import utils.PropertyUtils;
 
 import java.time.Duration;
 import java.util.Objects;
@@ -23,8 +24,8 @@ public final class Driver {
                 DriverManager.setDriver(new FirefoxDriver());
             }
             DriverManager.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-            DriverManager.getDriver().get(JsonUtils.get(ConfigProperty.URL));
-//            DriverManager.getDriver().get(PropertyUtils.get(ConfigProperty.URL));
+//            DriverManager.getDriver().get(JsonUtils.get(ConfigProperty.URL));
+            DriverManager.getDriver().get(PropertyUtils.get(ConfigProperty.URL));
         }
     }
 
