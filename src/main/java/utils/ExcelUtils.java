@@ -39,7 +39,10 @@ public final class ExcelUtils {
                 list.add(map);
             }
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            StackTraceElement[] a = e.getStackTrace();
+            a[0] = new StackTraceElement("utils.ExcelUtils", "getTestData", "ExcelUtils.java", 23);
+            e.setStackTrace(a);
+            throw new RuntimeException("Excel file not found", e);
         } catch (IOException e) {
             e.printStackTrace();
         }
