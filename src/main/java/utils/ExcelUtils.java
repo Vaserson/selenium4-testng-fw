@@ -7,19 +7,19 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public final class ExcelUtils {
     private ExcelUtils() {
     }
 
     public static List<Map<String, String>> getTestData(String sheetName) {
-        FileInputStream fs = null;
         List<Map<String, String>> list = null;
 
-        //todo Try with resources
-        try {
-            fs = new FileInputStream(Constants.getTestDataPath());
+        try (FileInputStream fs = new FileInputStream(Constants.getTestDataPath())) {
             XSSFWorkbook wb = new XSSFWorkbook(fs);
             XSSFSheet sheet = wb.getSheet(sheetName);
 
@@ -42,14 +42,6 @@ public final class ExcelUtils {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
-        } finally {
-            if (Objects.nonNull(fs)) {
-                try {
-                    fs.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
         }
         return list;
     }

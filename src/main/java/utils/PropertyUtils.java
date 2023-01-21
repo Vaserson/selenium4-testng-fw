@@ -12,12 +12,14 @@ import java.util.Properties;
 public final class PropertyUtils {
 
     private PropertyUtils() {}
+
     private static Properties property = new Properties();
     private static final Map<String, String> CONFIGMAP = new HashMap<>();
 
     static {
-        try {
-            FileInputStream file = new FileInputStream("src/test/resources/config/orangeHRM.properties");
+        // May include few streams in one
+        // try(first resource; second resource)
+        try(FileInputStream file = new FileInputStream("src/test/resources/config/orangeHRM.properties")) {
             property.load(file);
             for(Map.Entry<Object, Object> entry : property.entrySet()) {
                 CONFIGMAP.put(String.valueOf(entry.getKey()), String.valueOf(entry.getValue()));
